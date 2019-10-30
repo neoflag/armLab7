@@ -1,0 +1,4 @@
+rg=$(az group create --name armLab7.1 --location koreacentral --query name --out tsv) 
+job=job.$(date --utc +"%Y%m%d.%H%M") 
+template=/mnt/c/Devpia/workspaces/examples/azure-infrastructure/lab7/vnet-hub.json 
+az group deployment create --name $job --template-file $template --resource-group $rg 
